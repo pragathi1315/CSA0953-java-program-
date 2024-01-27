@@ -1,0 +1,71 @@
+import java.util.ArrayList; 
+public class Main  
+{ 
+    
+    // Java function to find k numbers that satisfy the condition 
+    public static ArrayList<Integer> findKNumbers(ArrayList<Integer> arr, int k, int m) { 
+        ArrayList<Integer> result = new ArrayList<>(); // initialize an empty ArrayList to store the k numbers that satisfy the condition 
+        for (int i = 0; i < arr.size(); i++) { 
+            if (result.size() == k)  
+            { 
+                
+                // if we've already found k numbers, stop searching 
+                break; 
+            } 
+            for (int j = i + 1; j < arr.size(); j++)  
+            { 
+                
+                // loop over all numbers after the i-th number to avoid duplicates 
+                if ((arr.get(i) - arr.get(j)) % m == 0)  
+                { 
+                    
+                    // if the difference between i-th and  
+                  // j-th number is divisible by m,  
+                  // add them to the result ArrayList 
+                    result.add(arr.get(i)); 
+                    if (result.size() == k) 
+                    { 
+                        
+                        // if we've already found k numbers, stop searching 
+                        break; 
+                    } 
+                    result.add(arr.get(j)); 
+                    if (result.size() == k) 
+                    { 
+                        
+                        // if we've already found k numbers, stop searching 
+                        break; 
+                    } 
+                } 
+            } 
+        } 
+        if (result.size() == k) 
+        { 
+            
+            // if we've found k numbers that satisfy  
+          // the condition, return the result ArrayList 
+            return result; 
+        } 
+        else { M
+            // otherwise, return -1 to indicate that 
+          // there are no k numbers that satisfy the condition 
+            return new ArrayList<Integer>(java.util.Arrays.asList(-1)); 
+        } 
+    } 
+  
+    public static void main(String[] args)  
+    { 
+        
+        // example usage 
+        ArrayList<Integer> arr = new ArrayList<Integer>(); 
+        arr.add(1); 
+        arr.add(8); 
+        arr.add(4); 
+        int k = 2; 
+        int m = 3; 
+        ArrayList<Integer> result = findKNumbers(arr, k, m); 
+        for (int i = 0; i < result.size(); i++) { 
+            System.out.print(result.get(i) + " "); // prints [1, 4] 
+        } 
+    } 
+}
