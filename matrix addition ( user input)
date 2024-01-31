@@ -1,0 +1,40 @@
+import java.util.Scanner;
+public class MatrixAddition {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of rows: ");
+        int rows = scanner.nextInt();
+        System.out.print("Enter the number of columns: ");
+        int columns = scanner.nextInt();
+        int[][] matrixA = new int[rows][columns];
+        int[][] matrixB = new int[rows][columns];
+        System.out.println("Enter the elements of matrix A:");
+        inputMatrix(scanner, matrixA);
+        System.out.println("Enter the elements of matrix B:");
+        inputMatrix(scanner, matrixB);
+        int[][] matrixC = new int[rows][columns];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                matrixC[i][j] = matrixA[i][j] + matrixB[i][j];
+            }
+        }
+        System.out.println("Matrix C (Result of Addition):");
+        printMatrix(matrixC);
+    }
+    public static void inputMatrix(Scanner scanner, int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+    }
+    public static void printMatrix(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int value : row) {
+                System.out.print(value + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
