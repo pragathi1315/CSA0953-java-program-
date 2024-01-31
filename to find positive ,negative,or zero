@@ -1,0 +1,16 @@
+import java.util.Scanner;
+class IntegerNumber{
+public static void main(String[] args)
+{
+Scanner s=new Scanner(System.in);
+System.out.print("Enter num: ");
+int num;
+num=s.nextInt();
+if(num>0)
+System.out.println("num is positive integer");
+else if(num<0)
+System.out.println("num is negative integer");
+else
+System.out.println("num is zero");
+}
+}
