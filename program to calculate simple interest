@@ -1,0 +1,7 @@
+class SimpleInterest{
+    public static void main(String[] args) {
+        float p=23,t=12,r=2,si;
+        si=p*t*r/100;
+        System.out.println("simple interest="+si);
+    }
+}
